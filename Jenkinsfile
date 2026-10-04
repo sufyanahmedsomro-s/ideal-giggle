@@ -15,8 +15,8 @@ pipeline {
 
         stage('Deploy Application') {
             steps {
-                sh 'DOCKER_BUILDKIT=0 COMPOSE_DOCKER_CLI_BUILD=0 docker-compose down || true'
-                sh 'DOCKER_BUILDKIT=0 COMPOSE_DOCKER_CLI_BUILD=0 docker-compose up -d --build'
+                sh 'export DOCKER_BUILDKIT=0; export COMPOSE_DOCKER_CLI_BUILD=0; docker-compose down || true'
+                sh 'export DOCKER_BUILDKIT=0; export COMPOSE_DOCKER_CLI_BUILD=0; docker-compose up -d --build'
             }
         }
     }
